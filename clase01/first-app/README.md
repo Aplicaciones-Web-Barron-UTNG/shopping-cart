@@ -1,27 +1,77 @@
-# FirstApp
+# Creando la primera aplicación con Angular 10
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+## Ejecutar el comando para crear la aplicación
+ng new first-app
 
-## Development server
+## Responder a las preguntas
+![image](https://user-images.githubusercontent.com/8560750/210268348-f274a186-4e06-434f-8095-21f17f92cd25.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Ejecutar la aplicación
+### Cambiarse al directorio de trabajo
+cd first-app
 
-## Code scaffolding
+### Ejecutar el comando
+ng serve
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Abrir el navegador web e ingresar la URL
+http://localhost:4200/
 
-## Build
+## Creando un nuevo componente
+### Cambiar la configuración de angular.json
+![image](https://user-images.githubusercontent.com/8560750/210268549-8cf883ad-7696-42d9-a913-21dea5e695d8.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Ejecutar el comando 
+ng g c header
+ng g c footer
 
-## Running unit tests
+![image](https://user-images.githubusercontent.com/8560750/210268601-e158f8f6-1493-428b-baec-03c2be47e14e.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Modificar el archivo HEADER
+### Modificar el archivo app.component.html
+```
+<app-header></app-header>
+<div class="content">
+    <h1>Introducción a Angular</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, veniam ducimus laborum dignissimos perferendis ut, molestias placeat dicta recusandae nam fugiat magni cumque nobis nisi perspiciatis qui reprehenderit deserunt quibusdam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, veniam ducimus laborum dignissimos perferendis ut, molestias placeat dicta recusandae nam fugiat magni cumque nobis nisi perspiciatis qui reprehenderit deserunt quibusdam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, veniam ducimus laborum dignissimos perferendis ut, molestias placeat dicta recusandae nam fugiat magni cumque nobis nisi perspiciatis qui reprehenderit deserunt quibusdam.</p>
+</div>
+<app-footer></app-footer>
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Modificar el archivo app.component.css
+```
+.content {
+    background-color: aliceblue;
+    min-height: calc(100vh - 60px);
+}
+```
 
-## Further help
+### Modificar el archivo header.component.css
+```
+:host {
+    background-color: rgb(18, 135, 238);
+    color: white;
+    border-radius: 5px;
+    display: block;
+    font-size: 2rem;
+    height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 5px;
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Modificar el archivo footer.component.css
+```
+:host {
+    background-color: rgb(18, 135, 238);
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-size: 0.8rem;
+    height: 20px;
+    text-align: center;
+}
+```
