@@ -1,0 +1,4 @@
+.content {
+    background-color: aliceblue;
+    min-height: calc(100vh - 60px);
+}
