@@ -1,4 +1,6 @@
 # Creando la primera aplicación con Angular 10
+![image](https://user-images.githubusercontent.com/8560750/210269435-d113f722-31ad-4e1b-8a5c-e30da120059b.png)
+
 
 ## Ejecutar el comando para crear la aplicación
 ng new first-app
