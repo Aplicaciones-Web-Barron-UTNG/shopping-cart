@@ -87,3 +87,11 @@ ng g c footer
     text-align: center;
 }
 ```
+
+### Modificar el archivo styles.css
+```
+* {
+    margin: 0px;
+    padding: 0px;
+}
+```
