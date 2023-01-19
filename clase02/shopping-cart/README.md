@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Further help
+
+Crear una nueva aplicación 
+ng new shopping-cart
+
+Cambiarse al directorio
+cd shopping-cart
+
+Ejecutar servidor
+ng serve --o
+
+Crear carpeta llamada components
+
+Crear componente header y footer
+ng g c header --skipTests=true
+ng g c footer --skipTests=true
+
+Modificar archivo app.component.html eliminar contenido
+
+
