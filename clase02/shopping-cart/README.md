@@ -36,3 +36,13 @@ cd shopping-cart
 
 Ejecutar servidor
 ng serve --o
+
+Crear carpeta llamada components
+
+Crear componente header y footer
+ng g c header --skipTests=true
+ng g c footer --skipTests=true
+
+Modificar archivo app.component.html eliminar contenido
+
+
