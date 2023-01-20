@@ -70,3 +70,24 @@ Modificar el component footer.component.scss y header.component.scss
 }
 ~~~
 
+Modificar archivo header.component.html
+Descargar icon de carrito https://icons8.com/icons/set/shopping-cart
+
+~~~
+<header>
+    <span>My Store</span>
+    <img src="/assets/img/cart.png" alt="">
+    <span class="cart">Mi Carrito</span>
+</header>
+~~~
+
+Agregar estilos a header.component.css
+~~~
+<header>
+    <span>My Store</span>
+    <div class="cart">
+        <img src="/assets/img/cart.png" alt="">
+        <span class="cart">Mi Carrito</span>
+    </div>
+</header>
+~~~
