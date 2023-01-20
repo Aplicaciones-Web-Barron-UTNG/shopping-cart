@@ -64,7 +64,7 @@ Modificar el component footer.component.scss y header.component.scss
     background-color: rgb(20, 131, 228);
     font-size: 0.85rem;
     height: 40px;
-    text-align: center;
+    text-align: left;
     padding: 10px;
     color: white;
 }
@@ -90,4 +90,88 @@ Agregar estilos a header.component.css
         <span class="cart">Mi Carrito</span>
     </div>
 </header>
+~~~
+
+Modificar componente footer.component.html
+~~~
+<footer>
+    Derechos reservados @2023
+</footer>
+~~~
+
+Modificar componente footer.component.scss
+~~~
+.content {
+    display: block;
+    min-height: calc(100vh - 160px);
+    width: 64%;
+    margin: 0 auto;
+    padding-top: 60px;
+    text-align: center;
+
+    .product {
+        display: inline-block
+    }
+}
+~~~
+
+Modificar archivo app.component.html
+~~~
+<app-header></app-header>
+<div class="content">
+    <app-product></app-product>
+    <app-product></app-product>
+    <app-product></app-product>
+    <app-product></app-product>
+    <app-product></app-product>
+    <app-product></app-product>
+</div>
+<app-footer></app-footer>
+~~~
+
+Dar estilos product.component.html
+~~~
+<h1>Nombre</h1>
+<p>Descripción</p>
+<span>Precio</span>
+<Button>Add</Button>
+
+~~~
+Dar estilos product.component.scss
+~~~
+:host {
+    display: block;
+    height: 120px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 4px 4px black;
+    margin: 10px;
+    padding: 10px;
+
+    h1 {
+        font-size: 1.25rem;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+    }
+
+    span {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    button {
+        margin-left: 20px;
+        padding: 5px 10px;
+        background-color: rgb(144, 10, 185);
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+    }
+}
 ~~~
