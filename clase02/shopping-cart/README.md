@@ -42,7 +42,31 @@ Crear carpeta llamada components
 Crear componente header y footer
 ng g c header --skipTests=true
 ng g c footer --skipTests=true
+ng g c product 
 
 Modificar archivo app.component.html eliminar contenido
 
+Mark TechSon
+https://www.youtube.com/watch?v=qmIMMutmuX0
+
+~~~
+<app-header></app-header>
+<div class="content">
+  
+</div>
+<app-footer></app-footer>
+~~~
+
+Modificar el component footer.component.scss y header.component.scss
+~~~
+:host {
+    display: block;
+    background-color: rgb(20, 131, 228);
+    font-size: 0.85rem;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+~~~
 
