@@ -323,12 +323,43 @@ Deshabilitar en archivo ts.config.json
 }
 ~~~
 
+
 Vamos a printear los datos del objeto product
 Modificar archivo product.component.html
 ~~~
 <h1>{{product.name}}</h1>
 <p>{{product.description}}</p>
-<span>{{product.price}}</span>
+<span>{{product.price | currency}}</span>
 <Button>Add</Button>
+~~~
+
+Agregar la funcionalidad de botón Agregar
+Agregar un evento click al componente product.component.html
+<Button (click)="add()">Add</Button>
+
+Agregar método en componente product.component.html
+~~~
+
+    add():void {
+      localStorage.setItem('cart', JSON.stringify( this.product));
+    }
+~~~
+
+Ver application|localstorage
+
+Vamos a definir un arreglo de objetos para el carrito
+Definir una interface ICart
+~~~
+export interface ICart {
+    name: string,
+    price: number,
+    quantity: number
+}
+~~~
+Modificar componente product.component.ts
+~~~
+export class ProductComponent{
+  @Input() product: IProduct;
+  cart:ICart[];
 ~~~
 
