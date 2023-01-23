@@ -231,3 +231,104 @@ Modificar el archivo app.component.html
 </div>
 <app-footer></app-footer>
 ~~~
+
+Agregar datos en el array para los datos de producto
+crear una carpeta llamada interfaces
+Crear un archivo dentro de la carpeta llamada product.interface.ts
+~~~
+export interface IProduct {
+    id:number,
+    name:string,
+    description:string,
+    price:number,
+    img:string
+  }
+~~~
+
+
+Importar la interface en el archivo app.compoment.ts
+~~~
+import { Component } from '@angular/core';
+
+import {IProduct} from './interfaces/product.interface';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'shopping-cart';
+
+  products: IProduct[]; //Una lista de productos
+
+
+  constructor() {
+    this.products = [
+      {id:1, name:"Mascarilla 01", description: "Embellece tu cara 01", price:100, img:''},
+      {id:2, name:"Mascarilla 02", description: "Embellece tu cara 02", price:101, img:''},
+      {id:3, name:"Mascarilla 03", description: "Embellece tu cara 03", price:102, img:''},
+      {id:4, name:"Mascarilla 04", description: "Embellece tu cara 04", price:103, img:''},
+      {id:5, name:"Mascarilla 05", description: "Embellece tu cara 05", price:104, img:''},
+      {id:6, name:"Mascarilla 06", description: "Embellece tu cara 06", price:105, img:''}
+    ];
+  }
+
+  ngOnInit(): void {
+    
+  }
+}
+
+~~~
+
+Hacer que el producto llegue app-product
+Modificar el componente product.component.ts
+~~~
+import { Component, Input } from '@angular/core';
+import { IProduct } from '../interfaces/product.interface';
+
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
+})
+export class ProductComponent{
+  @Input() product?: IProduct;
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(this.product);    
+  }
+}
+~~~
+
+Modificar el archivo app.component.html
+~~~
+<app-header></app-header>
+<div class="content">
+    <div class="product" *ngFor="let p of products">
+        <app-product [product] = "p"></app-product></div>
+    <div class="product"><app-product></app-product></div>
+</div>
+<app-footer></app-footer>
+~~~
+Obervar la consola del navegador
+Deshabilitar en archivo ts.config.json
+~~~
+"compilerOptions": {
+    "strictPropertyInitialization": false,
+    ...
+}
+~~~
+
+Vamos a printear los datos del objeto product
+Modificar archivo product.component.html
+~~~
+<h1>{{product.name}}</h1>
+<p>{{product.description}}</p>
+<span>{{product.price}}</span>
+<Button>Add</Button>
+~~~
+
