@@ -175,3 +175,59 @@ Dar estilos product.component.scss
     }
 }
 ~~~
+
+Parece que se vea mejor modificar el archivo app.component.html, para que ocupen el espacio de manera horizontal
+~~~
+<app-header></app-header>
+<div class="content">
+    <div class="product"><app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+</div>
+<app-footer></app-footer>
+~~~
+
+Vamos a agregarle datos 
+Directivas estructurales
+https://medium.com/notasdeangular/directivas-en-angular-efb8a8cf78e0
+
+Vamos usar ngFor
+
+
+Vamos a modificar el componente app.component.ts
+~~~
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'shopping-cart';
+
+  products: string[]; //Una lista de productos
+
+
+  constructor() {
+    this.products = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"];
+  }
+
+  ngOnInit(): void {
+    
+  }
+~~~
+
+Modificar el archivo app.component.html
+~~~
+<app-header></app-header>
+<div class="content">
+    <div class="product" *ngFor="let p of products">
+        <app-product></app-product></div>
+    <div class="product"><app-product></app-product></div>
+</div>
+<app-footer></app-footer>
+~~~
