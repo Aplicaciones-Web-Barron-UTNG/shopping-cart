@@ -1,4 +1,4 @@
-<h1>Nombre</h1>
-<p>Descripción</p>
-<span>Precio</span>
-<Button>Add</Button>
+<h1>{{product.name}}</h1>
+<p>{{product.description}}</p>
+<span>{{product.price | currency}}</span>
+<Button (click)="add()">Add</Button>
