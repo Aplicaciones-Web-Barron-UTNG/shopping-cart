@@ -358,8 +358,70 @@ export interface ICart {
 ~~~
 Modificar componente product.component.ts
 ~~~
+import { Component, Input } from '@angular/core';
+
+import {IProduct, ICart} from '../interfaces';
+
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
+})
 export class ProductComponent{
   @Input() product: IProduct;
-  cart:ICart[];
+  cart:ICart[]; //Variable temporal para modificar elementos del carrito
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(this.product);    
+  }
+
+    add():void {
+      this.cart = JSON.parse(localStorage.getItem('cart') as string);
+      this.cart.push({name: this.product.name , price: this.product.price, quantity: 1});
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+}
 ~~~
 
+Modificar componente app.component.ts
+~~~
+import { Component } from '@angular/core';
+
+import {IProduct, ICart} from './interfaces';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'shopping-cart';
+
+  products: IProduct[]; //Un arreglo de productos
+  cart:ICart[] =[];  //Arreglo vacío de productos compra
+
+  constructor() {
+    //Al inicio el carrito es vacío
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  ngOnInit(): void {
+    //Inicializa los productos
+    this.products = [
+      {id:1, name:"Mascarilla 01", description: "Embellece tu cara 01", price:100, img:''},
+      {id:2, name:"Mascarilla 02", description: "Embellece tu cara 02", price:101, img:''},
+      {id:3, name:"Mascarilla 03", description: "Embellece tu cara 03", price:102, img:''},
+      {id:4, name:"Mascarilla 04", description: "Embellece tu cara 04", price:103, img:''},
+      {id:5, name:"Mascarilla 05", description: "Embellece tu cara 05", price:104, img:''},
+      {id:6, name:"Mascarilla 06", description: "Embellece tu cara 06", price:105, img:''}
+    ];    
+  }
+}
+
+
+Vamos a desplegar productos de Cart
+
+~~~
