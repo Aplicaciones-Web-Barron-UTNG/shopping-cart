@@ -356,6 +356,20 @@ export interface ICart {
     quantity: number
 }
 ~~~
+
+Crear un archivo index.ts en carpeta interfaces
+~~~
+
+export * from './cart.interface';
+export * from './product.interface'
+~~~
+
+para invocar las interfaces
+~~~
+
+import {IProduct, ICart} from './interfaces';
+~~~
+
 Modificar componente product.component.ts
 ~~~
 import { Component, Input } from '@angular/core';
@@ -424,4 +438,146 @@ export class AppComponent {
 
 Vamos a desplegar productos de Cart
 
+Crear un nuevo componente
+~~~
+ng g c cart
+~~~
+
+Modificar cart.component.ts
+~~~
+
+~~~
+
+Modificar cart.component.html
+~~~
+<p>Carrito de compras</p>
+<div class="content">
+    <div class="item" *ngFor="let item of cart">
+        <span>Nombre  {{item.name}}</span>
+        <span>Price  {{item.price}}</span>
+        <span>Quantity  {{item.quantity}}</span>
+    </div>
+</div>
+~~~
+
+Invocar al carrito modificar app.component.html
+~~~
+<app-header></app-header>
+<app-cart *ngIf="showCart"></app-cart>
+<div class="content">
+    <div class="product" *ngFor="let p of products">
+        <app-product [product] = "p"></app-product></div>
+    <div class="product">
+</div>
+<app-footer></app-footer>
+~~~
+
+Modificar app.component.ts
+~~~
+import { Component } from '@angular/core';
+
+import {IProduct, ICart} from './interfaces';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'shopping-cart';
+
+  products: IProduct[]; //Una lista de productos
+  cart: ICart[]=[];
+  showCart:boolean;
+
+
+  constructor() {
+    this.showCart = false; //N muestra carrito default
+    localStorage.setItem('cart', JSON.stringify( this.cart)); //Carrito Vacío al Inicio
+
+  }
+
+  ngOnInit(): void {
+    this.products = [
+      {id:1, name:"Mascarilla 01", description: "Embellece tu cara 01", price:100, img:''},
+      {id:2, name:"Mascarilla 02", description: "Embellece tu cara 02", price:101, img:''},
+      {id:3, name:"Mascarilla 03", description: "Embellece tu cara 03", price:102, img:''},
+      {id:4, name:"Mascarilla 04", description: "Embellece tu cara 04", price:103, img:''},
+      {id:5, name:"Mascarilla 05", description: "Embellece tu cara 05", price:104, img:''},
+      {id:6, name:"Mascarilla 06", description: "Embellece tu cara 06", price:105, img:''}
+    ];
+    
+  }
+}
+
+~~~  
+
+Modificar header.component.html
+~~~
+<header>
+    <span>My Store</span>
+    <div class="cart" onclick="showCart()">
+        <img src="/assets/img/cart.png" alt="">
+        <span class="cart">Mi Carrito</span>
+    </div>
+</header>
+~~~  
+
+Modificar header.component.ts
+~~~
+import { Component, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent {
+
+  @Output() show: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  showCart() {
+    this.show.emit(true);
+  }
+}
+~~~
+  
+Modificar app.component.ts
+~~~
+import { Component } from '@angular/core';
+
+import {IProduct, ICart} from './interfaces';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'shopping-cart';
+
+  products: IProduct[]; //Una lista de productos
+  cart: ICart[]=[];
+  show:boolean; //Indica si muestra carrito
+
+
+  constructor() {
+    this.show = false; //N muestra carrito default
+    localStorage.setItem('cart', JSON.stringify( this.cart)); //Carrito Vacío al Inicio
+
+  }
+
+  ngOnInit(): void {
+    this.products = [
+      {id:1, name:"Mascarilla 01", description: "Embellece tu cara 01", price:100, img:''},
+      {id:2, name:"Mascarilla 02", description: "Embellece tu cara 02", price:101, img:''},
+      {id:3, name:"Mascarilla 03", description: "Embellece tu cara 03", price:102, img:''},
+      {id:4, name:"Mascarilla 04", description: "Embellece tu cara 04", price:103, img:''},
+      {id:5, name:"Mascarilla 05", description: "Embellece tu cara 05", price:104, img:''},
+      {id:6, name:"Mascarilla 06", description: "Embellece tu cara 06", price:105, img:''}
+    ];
+    
+  }
+}
+  
 ~~~
