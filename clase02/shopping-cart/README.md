@@ -356,6 +356,20 @@ export interface ICart {
     quantity: number
 }
 ~~~
+
+Crear un archivo index.ts en carpeta interfaces
+~~~
+
+export * from './cart.interface';
+export * from './product.interface'
+~~~
+
+para invocar las interfaces
+~~~
+
+import {IProduct, ICart} from './interfaces';
+~~~
+
 Modificar componente product.component.ts
 ~~~
 import { Component, Input } from '@angular/core';
@@ -423,5 +437,7 @@ export class AppComponent {
 
 
 Vamos a desplegar productos de Cart
+
+~~~
 
 ~~~
