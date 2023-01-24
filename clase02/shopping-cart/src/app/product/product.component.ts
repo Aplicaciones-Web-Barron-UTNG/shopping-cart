@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../interfaces/product.interface';
-import { ICart } from '../interfaces/cart.interface';
+import {IProduct, ICart} from '../interfaces';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +11,6 @@ export class ProductComponent{
   cart:ICart[];
 
   constructor() {
-    localStorage.setItem('cart', JSON.stringify([]));
   }
 
   ngOnInit(): void {
@@ -20,6 +18,8 @@ export class ProductComponent{
   }
 
     add():void {
-      localStorage.setItem('cart', JSON.stringify( this.product));
+      this.cart = JSON.parse(localStorage.getItem('cart') as string);
+      this.cart.push({name: this.product.name , price: this.product.price, quantity: 1});
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
 }
