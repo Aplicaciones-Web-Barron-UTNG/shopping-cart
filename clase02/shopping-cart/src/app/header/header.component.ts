@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() show: EventEmitter<void> = new EventEmitter<void>();
+  @Output() show: EventEmitter<void> = new EventEmitter();
 
   showCart() {
     console.log('Show Cart');
