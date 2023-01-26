@@ -460,7 +460,7 @@ Modificar cart.component.html
 </div>
 ~~~
 
-Invocar al carrito modificar app.component.html
+Invocar al carrito modificar app.component.html siempre y cuando se tenga una bandera llamada show  
 ~~~
 <app-header></app-header>
 <app-cart *ngIf="showCart"></app-cart>
@@ -472,7 +472,7 @@ Invocar al carrito modificar app.component.html
 <app-footer></app-footer>
 ~~~
 
-Modificar app.component.ts
+Modificar app.component.ts para agregar esa variable llamada show, por default indicamos que no se muestre
 ~~~
 import { Component } from '@angular/core';
 
@@ -511,6 +511,7 @@ export class AppComponent {
 }
 
 ~~~  
+El momento de mostrar el carrito es cuando alguien le haga clic al header, para ello programar el botón del header cuando alguien haga clic.
 
 Modificar header.component.html
 ~~~
@@ -524,6 +525,8 @@ Modificar header.component.html
 ~~~  
 
 Modificar header.component.ts
+Necesitamos conocer como se comunica un componente hijo con un componente padre
+
 ~~~
 import { Component, EventEmitter, Output } from '@angular/core';
 
@@ -534,22 +537,34 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() show: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() show: EventEmitter<void> = new EventEmitter<void>();
 
   showCart() {
-    this.show.emit(true);
+    this.show.emit();
   }
 }
 ~~~
+
+Modificar el componente padre app.componente.html
+~~~
+<app-header (show)="toogleCart()"></app-header>
+<app-cart *ngIf="show"></app-cart>
+<div class="content"> 
+    <div class="product" *ngFor="let p of products">
+        <app-product [product] = "p"></app-product></div>
+    <div class="product">
+</div>
+<app-footer></app-footer>
+~~~
   
-Modificar app.component.ts
+Modificar app.component.ts vamos a ligar
 ~~~
 import { Component } from '@angular/core';
 
 import {IProduct, ICart} from './interfaces';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -578,6 +593,10 @@ export class AppComponent {
     ];
     
   }
+
+  toogleCart() {
+    this.show = !this.show;
+  }
 }
-  
+
 ~~~
