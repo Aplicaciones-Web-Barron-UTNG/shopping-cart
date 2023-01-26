@@ -517,7 +517,7 @@ Modificar header.component.html
 ~~~
 <header>
     <span>My Store</span>
-    <div class="cart" onclick="showCart()">
+    <div class="cart" (click)="showCart()">
         <img src="/assets/img/cart.png" alt="">
         <span class="cart">Mi Carrito</span>
     </div>
@@ -537,9 +537,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() show: EventEmitter<void> = new EventEmitter<void>();
+  @Output() show: EventEmitter<any> = new EventEmitter();
 
   showCart() {
+    console.log('Me hiciste Click')
     this.show.emit();
   }
 }
@@ -600,3 +601,6 @@ export class AppComponent {
 }
 
 ~~~
+
+
+Agregar productos al carrito
