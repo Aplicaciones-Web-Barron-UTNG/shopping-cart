@@ -1,5 +1,7 @@
 <app-header (show)="toogleCart()"></app-header>
-<app-cart *ngIf="show"></app-cart>
+<div class="cart" *ngIf="show">
+    <app-cart ></app-cart>
+</div>
 <div class="content"> 
     <div class="product" *ngFor="let p of products">
         <app-product [product] = "p"></app-product></div>

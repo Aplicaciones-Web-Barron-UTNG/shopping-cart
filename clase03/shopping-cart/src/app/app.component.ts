@@ -8,16 +8,20 @@ import {IProduct, ICart} from './interfaces';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'shopping-cart';
+  title = 'shopping-cart'; 
 
   products: IProduct[]; //Una lista de productos
-  cart: ICart[]=[];
+  cart: ICart[];
   show:boolean; //Indica si muestra carrito
 
 
   constructor() {
+    this.cart = JSON.parse(localStorage.getItem('cart') as string);
+
+    if (!this.cart) {
+      localStorage.setItem('cart', JSON.stringify( [])); //Carrito Vacío al Inicio
+    }
     this.show = false; //N muestra carrito default
-    localStorage.setItem('cart', JSON.stringify( this.cart)); //Carrito Vacío al Inicio
 
   }
 
