@@ -193,4 +193,24 @@ export class ProductComponent {
 ~~~
 
 
-Vamos a dar estilo para la presentación del carrito
+Al inicio está eliminando los productos
+Modificar el componente app.component.ts como proppiedad y en el consructor
+~~~
+export class AppComponent {
+  title = 'shopping-cart'; 
+
+  products: IProduct[]; //Una lista de productos
+  cart: ICart[];
+  show:boolean; //Indica si muestra carrito
+
+
+  constructor() {
+    this.cart = JSON.parse(localStorage.getItem('cart') as string);
+
+    if (!this.cart) {
+      localStorage.setItem('cart', JSON.stringify( [])); //Carrito Vacío al Inicio
+    }
+    this.show = false; //N muestra carrito default
+
+  }
+~~~
