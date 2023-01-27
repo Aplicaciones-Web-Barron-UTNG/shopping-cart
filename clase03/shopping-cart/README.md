@@ -28,4 +28,112 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Further help
 
+Hasta ésta lección se pueden agregar productos al carrito de compras a través del localStorage
+Vamos a dar una mejor presentación al carrito de compras
 
+Modificar el archivo cart.component.scss
+~~~
+:host {
+    display: block;
+
+    span {
+        display: inline-block;
+        width: 250px;
+    }
+}
+~~~
+
+Vamos enumerar los puntos a mejorar para el carrito de compras
+- Que no se eliminen los productos cuando se refresque la página
+- Que no se agrega otro producto cuando no existe algo
+
+Revisemos que para el componente cart.component.ts se hace el manejo del arreglo cart
+~~~
+export class CartComponent {
+
+  cart: ICart[];
+
+  ngOnInit(): void {
+    //LLena carrito de compras de LocalStorage
+    this.cart = JSON.parse( localStorage.getItem('cart') as string );   
+  }
+
+}
+~~~
+
+El component product.component.ts haces manejo de agregar productos al carrito de compras
+~~~
+export class ProductComponent{
+  @Input() product: IProduct;
+  cart:ICart[];
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(this.product);    
+  }
+
+    add():void {
+      this.cart = JSON.parse(localStorage.getItem('cart') as string);
+      this.cart.push({name: this.product.name , price: this.product.price, quantity: 1});
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+}
+~~~
+
+Validar que un producto ya existe
+Hagamos modificaciones a la interfaz ICart agregando el ID
+~~~
+export interface ICart {
+    id:number,
+    name: string,
+    price: number,
+    quantity: number
+}
+~~~
+
+Modificar el agregado del producto product.component.ts  agregando el id
+~~~
+    add():void {
+      this.cart = JSON.parse(localStorage.getItem('cart') as string);
+      this.cart.push({id: this.product.id, name: this.product.name , price: this.product.price, quantity: 1});
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+~~~
+
+Vamos a modificar componente product.component.ts para que agregue cantidades
+~~~
+export class ProductComponent {
+  @Input() product: IProduct;
+  cart: ICart[];
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(this.product);
+  }
+
+  add(): void {
+    this.cart = JSON.parse(localStorage.getItem('cart') as string);
+
+    //Validar si un producto ya existe
+    let isFound = false;
+    this.cart.forEach(item => {
+      if (item.id === this.product.id) {
+        isFound = true;
+        item.quantity = item.quantity + 1; //Aumenta en 1
+      }
+    });
+
+    if (!isFound) {
+      this.cart.push({ id: this.product.id, name: this.product.name, price: this.product.price, quantity: 1 });
+      
+    }
+
+
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+}
+~~~
