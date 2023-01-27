@@ -31,7 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Hasta ésta lección se pueden agregar productos al carrito de compras a través del localStorage
 Vamos a dar una mejor presentación al carrito de compras
 
-Modificar el archivo cart.component.scss
+Modificar el archivo cart.component.scss para darle mejor presentación al despliegue de productos
 ~~~
 :host {
     display: block;
@@ -43,11 +43,65 @@ Modificar el archivo cart.component.scss
 }
 ~~~
 
+
+Modificar el archivo app.component.html para igualmente posicionarlo y darle mejor estilo
+~~~
+<app-header (show)="toogleCart()"></app-header>
+<div class="cart" *ngIf="show">
+    <app-cart ></app-cart>
+</div>
+<div class="content"> 
+    <div class="product" *ngFor="let p of products">
+        <app-product [product] = "p"></app-product></div>
+    <div class="product">
+</div>
+<app-footer></app-footer>
+
+~~~
+
+Modificar el archivo app.componente .scss
+~~~
+:host {
+    display: block;
+    position: relative;
+}
+.content {
+    display: block;
+    min-height: calc(100vh - 160px);
+    width: 64%;
+    margin: 0 auto;
+    padding-top: 60px;
+    text-align: center;
+
+    .product {
+        display: inline-block
+    }
+}
+
+.cart {
+    left: 600px;
+    background-color: rgb(211, 211, 241);
+    color: white;
+    position: absolute;
+    padding-left: 20px;
+    z-index: 100;
+}
+~~~
+
+Práctica el estilo 
+Agregar al carrito el cursor puntero en el carrito de compra, al botón de agregar el producto
+~~~
+cursor:pointer;
+~~~
+
 Vamos enumerar los puntos a mejorar para el carrito de compras
 - Que no se eliminen los productos cuando se refresque la página
 - Que no se agrega otro producto cuando no existe algo
+- Tema de estilos en la página
 
-Revisemos que para el componente cart.component.ts se hace el manejo del arreglo cart
+Revisemos que para el componente cart.component.ts se hace el manejo del arreglo cart, que es posicionando en el componente app.component.html y definido de manera global en componente app.component.ts
+Pero se llenaba en el componente product.componente.html
+
 ~~~
 export class CartComponent {
 
