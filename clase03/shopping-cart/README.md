@@ -137,3 +137,6 @@ export class ProductComponent {
   }
 }
 ~~~
+
+
+Vamos a dar estilo para la presentación del carrito
