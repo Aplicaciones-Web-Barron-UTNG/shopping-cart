@@ -119,3 +119,12 @@ ng g c footer
     padding: 0px;
 }
 ```
+
+## Conceptos de la práctica con tus propias palabras
+- Define que es un `componente` y al crearlo que elementos lo forman.
+- Define que es un `módulo` y que función tiene el patrón de diseño decorator.
+- Menciona y describe los elementos importantes de un @NgModule
+- Subir tu práctica al [GitHub](https://github.com/) y comparte en la entrega de [Elearning](https://elearning.utng.edu.mx/) en la entrega correspondiente de la Unidad 2.
+- 
+- Define una clase que se llame **Usuario** con los atributos email, contraseña y métodos login y register
+B. 
