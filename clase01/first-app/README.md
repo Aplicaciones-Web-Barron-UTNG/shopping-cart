@@ -1,5 +1,6 @@
-# Creando la primera aplicación con Angular 10
-Vista la primera aplicación del carrito de compra.
+# Creando la primera aplicación con Angular 51
+En ésta primera clase se trabajará con el carrito de compra pero practicando con la Introducción a Angular.
+
 ![image](https://user-images.githubusercontent.com/8560750/210269435-d113f722-31ad-4e1b-8a5c-e30da120059b.png)
 
 
@@ -10,6 +11,16 @@ ng new first-app
 
 ## Responder a las preguntas
 ![image](https://user-images.githubusercontent.com/8560750/210268348-f274a186-4e06-434f-8095-21f17f92cd25.png)
+
+## Configurar el proyecto con PrimeNG
+Véase referencia de [PrimeNG](https://primeng.org/setup)
+
+### Instalar las dependencias en el proyecto
+~~~
+npm install primeng --save
+npm install primeicons --save
+~~~
+
 
 ## Ejecutar la aplicación
 ### Cambiarse al directorio de trabajo
