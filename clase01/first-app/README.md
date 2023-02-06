@@ -21,6 +21,19 @@ npm install primeng --save
 npm install primeicons --save
 ~~~
 
+### Configurar el archivo angular.json en la sección Styles
+
+~~~
+            "styles": [
+              "src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/md-light-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"              
+            ],
+
+~~~
+
+
 
 ## Ejecutar la aplicación
 ### Cambiarse al directorio de trabajo
