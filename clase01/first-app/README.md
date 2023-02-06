@@ -55,7 +55,7 @@ http://localhost:4200/
 ### Cambiar la configuración de angular.json
 ![image](https://user-images.githubusercontent.com/8560750/210268549-8cf883ad-7696-42d9-a913-21dea5e695d8.png)
 
-### Ejecutar el comando 
+### Ejecutar los comandos para crear el componente Header y Footer
 ~~~
 ng g c header
 ng g c footer
@@ -125,6 +125,8 @@ ng g c footer
 - Define que es un `módulo` y que función tiene el patrón de diseño decorator.
 - Menciona y describe los elementos importantes de un @NgModule
 - Subir tu práctica al [GitHub](https://github.com/) y comparte en la entrega de [Elearning](https://elearning.utng.edu.mx/) en la entrega correspondiente de la Unidad 2.
-- 
-- Define una clase que se llame **Usuario** con los atributos email, contraseña y métodos login y register
-B. 
+- Modificar el componente que tenga el atributo titulo y en el constructor asignarle el valor "Welcome tu Angular"; en el componente HTML invocar el atributo titulo.
+- Crear un Layout donde se despliegue el Header con una barra de menús, no se te olvide el estilo.
+- Igualmente invocar el componente Footer dentro del layout, no se te olvide el estilo.
+- Define una clase que se llame **Usuario** con los atributos email, contraseña y métodos login y register.
+- Desplegar la aplicación en [StackBlitz](https://stackblitz.com/).
