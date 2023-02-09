@@ -7,6 +7,7 @@ Para crear una aplicación Web con Angular ejecutar el siguiente comando en la c
 ```
 ng new shopping-cart
 ```
+Elegir el tipo el ruteo y el estilo SCSS 
 
 Esperar a que termine la configuración en la creación de la aplicación. Cambiar al directorio recien creado de la aplicación tecleando el siguiente comando :computer: 
 ```
@@ -18,14 +19,14 @@ Levantar el  servidor
 ng serve --o
 ```
 
-Crear carpeta llamada components
-
 Crear componente header y footer
-ng g c header --skipTests=true
-ng g c footer --skipTests=true
-ng g c product 
+```
+ng g c components/header --skipTests=true
+ng g c components/footer --skipTests=true
+ng g c components/product 
+```
 
-Modificar archivo app.component.html eliminar contenido
+Modificar archivo `app.component.html` eliminar contenido
 
 Mark TechSon
 https://www.youtube.com/watch?v=qmIMMutmuX0
@@ -38,7 +39,7 @@ https://www.youtube.com/watch?v=qmIMMutmuX0
 <app-footer></app-footer>
 ~~~
 
-Modificar el component footer.component.scss y header.component.scss
+Modificar el component `footer.component.scss` y `header.component.scss`
 ~~~
 :host {
     display: block;
@@ -51,8 +52,8 @@ Modificar el component footer.component.scss y header.component.scss
 }
 ~~~
 
-Modificar archivo header.component.html
-Descargar icon de carrito https://icons8.com/icons/set/shopping-cart
+Modificar archivo `header.component.html`
+Descargar icono de carrito en la siguiente URL https://icons8.com/icons/set/shopping-cart :page_with_curl:
 
 ~~~
 <header>
@@ -62,7 +63,7 @@ Descargar icon de carrito https://icons8.com/icons/set/shopping-cart
 </header>
 ~~~
 
-Agregar estilos a header.component.css
+Agregar estilos a componente `header.component.css`
 ~~~
 <header>
     <span>My Store</span>
@@ -73,14 +74,14 @@ Agregar estilos a header.component.css
 </header>
 ~~~
 
-Modificar componente footer.component.html
+Modificar componente `footer.component.html`
 ~~~
 <footer>
     Derechos reservados @2023
 </footer>
 ~~~
 
-Modificar componente footer.component.scss
+Modificar componente `footer.component.scss`
 ~~~
 .content {
     display: block;
@@ -96,7 +97,7 @@ Modificar componente footer.component.scss
 }
 ~~~
 
-Modificar archivo app.component.html
+Modificar archivo `app.component.html`
 ~~~
 <app-header></app-header>
 <div class="content">
@@ -110,7 +111,7 @@ Modificar archivo app.component.html
 <app-footer></app-footer>
 ~~~
 
-Dar estilos product.component.html
+Dar estilos `product.component.html`
 ~~~
 <h1>Nombre</h1>
 <p>Descripción</p>
@@ -118,7 +119,7 @@ Dar estilos product.component.html
 <Button>Add</Button>
 
 ~~~
-Dar estilos product.component.scss
+Dar estilos `product.component.scss`
 ~~~
 :host {
     display: block;
@@ -157,7 +158,7 @@ Dar estilos product.component.scss
 }
 ~~~
 
-Parece que se vea mejor modificar el archivo app.component.html, para que ocupen el espacio de manera horizontal
+Parece que se vea mejor modificar el archivo `app.component.html`, para que ocupen el espacio de manera horizontal
 ~~~
 <app-header></app-header>
 <div class="content">
@@ -172,13 +173,13 @@ Parece que se vea mejor modificar el archivo app.component.html, para que ocupen
 ~~~
 
 Vamos a agregarle datos 
-Directivas estructurales
+Directivas estructurales 
 https://medium.com/notasdeangular/directivas-en-angular-efb8a8cf78e0
 
-Vamos usar ngFor
+Vamos usar `ngFor`
 
 
-Vamos a modificar el componente app.component.ts
+Vamos a modificar el componente `app.component.ts`
 ~~~
 import { Component } from '@angular/core';
 
@@ -202,7 +203,7 @@ export class AppComponent {
   }
 ~~~
 
-Modificar el archivo app.component.html
+Modificar el archivo `app.component.html`
 ~~~
 <app-header></app-header>
 <div class="content">
@@ -215,7 +216,7 @@ Modificar el archivo app.component.html
 
 Agregar datos en el array para los datos de producto
 crear una carpeta llamada interfaces
-Crear un archivo dentro de la carpeta llamada product.interface.ts
+Crear un archivo dentro de la carpeta llamada `product.interface.ts`
 ~~~
 export interface IProduct {
     id:number,
@@ -227,7 +228,7 @@ export interface IProduct {
 ~~~
 
 
-Importar la interface en el archivo app.compoment.ts
+Importar la interface en el archivo `app.compoment.ts`
 ~~~
 import { Component } from '@angular/core';
 
@@ -263,7 +264,7 @@ export class AppComponent {
 ~~~
 
 Hacer que el producto llegue app-product
-Modificar el componente product.component.ts
+Modificar el componente `product.component.ts`
 ~~~
 import { Component, Input } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
@@ -285,7 +286,7 @@ export class ProductComponent{
 }
 ~~~
 
-Modificar el archivo app.component.html
+Modificar el archivo `app.component.html`
 ~~~
 <app-header></app-header>
 <div class="content">
@@ -306,7 +307,7 @@ Deshabilitar en archivo ts.config.json
 
 
 Vamos a printear los datos del objeto product
-Modificar archivo product.component.html
+Modificar archivo `product.component.html`
 ~~~
 <h1>{{product.name}}</h1>
 <p>{{product.description}}</p>
@@ -315,10 +316,10 @@ Modificar archivo product.component.html
 ~~~
 
 Agregar la funcionalidad de botón Agregar
-Agregar un evento click al componente product.component.html
+Agregar un evento click al componente `product.component.html`
 <Button (click)="add()">Add</Button>
 
-Agregar método en componente product.component.html
+Agregar método en componente `product.component.html`
 ~~~
 
     add():void {
