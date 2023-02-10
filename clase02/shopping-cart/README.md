@@ -7,7 +7,7 @@ Para crear una aplicación Web con Angular ejecutar el siguiente comando en la c
 ```
 ng new shopping-cart
 ```
-Elegir el tipo el ruteo y el estilo SCSS 
+Elegir el tipo el ruteo y el estilo SCSS al momento que lo solicite al crear la aplicación.
 
 Esperar a que termine la configuración en la creación de la aplicación. Cambiar al directorio recien creado de la aplicación tecleando el siguiente comando :computer: 
 ```
@@ -16,18 +16,17 @@ cd shopping-cart
 
 Levantar el  servidor
 ```
-ng serve --o
+ng serve -o
 ```
 
-Crear componente header y footer
+Crear componente `header` `footer` `product`
 ```
-ng g c components/header --skipTests=true
-ng g c components/footer --skipTests=true
+ng g c components/header 
+ng g c components/footer
 ng g c components/product 
 ```
 
-Modificar archivo `app.component.html` eliminar contenido
-
+Modificar archivo `app.component.html` y eliminar todo el contenido, enseguida agregar el siguiente código :computer:
 Mark TechSon
 https://www.youtube.com/watch?v=qmIMMutmuX0
 
@@ -39,7 +38,7 @@ https://www.youtube.com/watch?v=qmIMMutmuX0
 <app-footer></app-footer>
 ~~~
 
-Modificar el component `footer.component.scss` y `header.component.scss`
+Modificar el component `footer.component.scss` y `header.component.scss` :computer:
 ~~~
 :host {
     display: block;
