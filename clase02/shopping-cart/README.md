@@ -7,7 +7,9 @@ Para crear una aplicación Web con Angular ejecutar el siguiente comando en la c
 ```
 ng new shopping-cart
 ```
-Elegir el tipo el ruteo y el estilo SCSS al momento que lo solicite al crear la aplicación.
+
+- **Would you like to add Angular routing? (y/N)** :question:
+- **SCSS** :question:
 
 Esperar a que termine la configuración en la creación de la aplicación. Cambiar al directorio recien creado de la aplicación tecleando el siguiente comando :computer: 
 ```
@@ -18,7 +20,7 @@ Levantar el  servidor
 ```
 ng serve -o
 ```
-
+---
 Crear componente `header` `footer` `product`
 ```
 ng g c components/header 
@@ -27,9 +29,6 @@ ng g c components/product
 ```
 
 Modificar archivo `app.component.html` y eliminar todo el contenido, enseguida agregar el siguiente código :computer:
-Mark TechSon
-https://www.youtube.com/watch?v=qmIMMutmuX0
-
 ~~~
 <app-header></app-header>
 <div class="content">
@@ -38,7 +37,7 @@ https://www.youtube.com/watch?v=qmIMMutmuX0
 <app-footer></app-footer>
 ~~~
 
-Modificar el component `footer.component.scss` y `header.component.scss` :computer:
+Modificar el component `header.component.scss` :computer:
 ~~~
 :host {
     display: block;
@@ -57,21 +56,48 @@ Descargar icono de carrito en la siguiente URL https://icons8.com/icons/set/shop
 ~~~
 <header>
     <span>My Store</span>
-    <img src="/assets/img/cart.png" alt="">
-    <span class="cart">Mi Carrito</span>
-</header>
-~~~
-
-Agregar estilos a componente `header.component.css`
-~~~
-<header>
-    <span>My Store</span>
     <div class="cart">
         <img src="/assets/img/cart.png" alt="">
         <span class="cart">Mi Carrito</span>
     </div>
 </header>
 ~~~
+
+Crear una carpeta llamada `img` dentro de la carpeta `assets`
+Agregar una imagen de carrito de compra llamada cart.png
+
+Modificar nuevamente componente `header.component.html`
+~~~
+:host {
+  display: block;
+  background-color: rgb(10, 204, 204);
+  color: rgb(37, 12, 145);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  height: 60px;
+  text-align: left;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  padding: 10px;
+
+  div.cart {
+    float: right;
+    margin-right: 5px;
+  }
+
+  .cart img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .cart span {
+    font-size: 0.8rem;
+  }
+}
+
+~~~
+![imagen](https://user-images.githubusercontent.com/8560750/218585166-71e5988c-e700-4389-ae05-bab20f0a8a53.png)
+---
+
 
 Modificar componente `footer.component.html`
 ~~~
@@ -80,7 +106,19 @@ Modificar componente `footer.component.html`
 </footer>
 ~~~
 
-Modificar componente `footer.component.scss`
+Modificar componente `footer.component.scss` para dar estilo
+~~~
+:host {
+  background-color: rgb(10, 204, 204);
+  display: block;
+  border-radius: 10px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  height: 40px;
+  text-align: center;
+}
+~~~
+
+Modificar componente `app.component.scss` para dar estilo al contenido
 ~~~
 .content {
     display: block;
@@ -109,6 +147,9 @@ Modificar archivo `app.component.html`
 </div>
 <app-footer></app-footer>
 ~~~
+![imagen](https://user-images.githubusercontent.com/8560750/218586008-ad07832e-6b04-4a2e-9f59-59ba017dc08d.png)
+---
+
 
 Dar estilos `product.component.html`
 ~~~
