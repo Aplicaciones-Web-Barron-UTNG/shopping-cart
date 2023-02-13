@@ -127,6 +127,7 @@ Modificar componente `app.component.scss` para dar estilo al contenido
     margin: 0 auto;
     padding-top: 60px;
     text-align: center;
+    line-height: 5px;
 
     .product {
         display: inline-block
@@ -150,15 +151,15 @@ Modificar archivo `app.component.html`
 ![imagen](https://user-images.githubusercontent.com/8560750/218586008-ad07832e-6b04-4a2e-9f59-59ba017dc08d.png)
 ---
 
-
-Dar estilos `product.component.html`
+Dibujar el producto de acuerdo a características mediante el componente `product.component.html`
 ~~~
 <h1>Nombre</h1>
 <p>Descripción</p>
 <span>Precio</span>
 <Button>Add</Button>
-
 ~~~
+![imagen](https://user-images.githubusercontent.com/8560750/218587130-b6c9e39e-f045-45f8-b4e8-c4e5168af780.png)
+
 Dar estilos `product.component.scss`
 ~~~
 :host {
@@ -197,6 +198,8 @@ Dar estilos `product.component.scss`
     }
 }
 ~~~
+![imagen](https://user-images.githubusercontent.com/8560750/218587873-c1d51138-7094-4821-89a1-0947c7bb4be3.png)
+---
 
 Parece que se vea mejor modificar el archivo `app.component.html`, para que ocupen el espacio de manera horizontal
 ~~~
@@ -211,13 +214,14 @@ Parece que se vea mejor modificar el archivo `app.component.html`, para que ocup
 </div>
 <app-footer></app-footer>
 ~~~
+![imagen](https://user-images.githubusercontent.com/8560750/218588510-cf3d5c45-c649-40ec-a39d-ab808719aad7.png)
+---
 
 Vamos a agregarle datos 
 Directivas estructurales 
 https://medium.com/notasdeangular/directivas-en-angular-efb8a8cf78e0
 
-Vamos usar `ngFor`
-
+Vamos usar la directiva `ngFor`
 
 Vamos a modificar el componente `app.component.ts`
 ~~~
