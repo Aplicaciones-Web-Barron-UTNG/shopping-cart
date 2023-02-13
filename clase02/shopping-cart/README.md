@@ -360,10 +360,85 @@ Modificar archivo `product.component.html`
 --
 
 ## Agregar la funcionalidad de botón Agregar
-Agregar un evento click al componente `product.component.html`
-<Button (click)="add()">Add</Button>
+Primero, vamos a inicializar el carrito de comprar
+Modificar componente `app.component.ts`
+~~~
+export class AppComponent {
+  title = 'shopping-cart';
 
-Agregar método en componente `product.component.html`
+  products: IProduct[]; //Listado de productos
+
+  constructor() {
+    this.products = [
+      {
+        id: 1,
+        name: 'Perfume 1',
+        description: 'Perfume 1',
+        price: 100,
+        img: '',
+      },
+      {
+        id: 2,
+        name: 'Perfume 2',
+        description: 'Perfume 2',
+        price: 200,
+        img: '',
+      },
+      {
+        id: 3,
+        name: 'Perfume 3',
+        description: 'Perfume 3',
+        price: 300,
+        img: '',
+      },
+      {
+        id: 4,
+        name: 'Perfume 4',
+        description: 'Perfume 4',
+        price: 400,
+        img: '',
+      },
+      {
+        id: 5,
+        name: 'Perfume 5',
+        description: 'Perfume 5',
+        price: 500,
+        img: '',
+      },
+      {
+        id: 6,
+        name: 'Perfume 6',
+        description: 'Perfume 6',
+        price: 600,
+        img: '',
+      },
+    ];
+    localStorage.setItem('cart', JSON.stringify([])); //Carrito vacío
+  }
+
+  ngOnInit() {}
+}
+~~~
+
+Crear una interface que almacene un producto en específico en el carrito de compras
+~~~
+export interface ICart {
+  name: string;
+  price: number;
+  quantity: number;
+}
+~~~
+
+Modificar el componente product.component.ts
+~~~
+
+~~~
+
+
+Agregar un evento click al componente `product.component.html`
+`<Button (click)="add()">Add</Button>`
+
+Agregar método en componente `product.component.ts`
 ~~~
 
     add():void {
@@ -372,6 +447,8 @@ Agregar método en componente `product.component.html`
 ~~~
 
 Ver application|localstorage
+![imagen](https://user-images.githubusercontent.com/8560750/218594227-321216ab-30d8-4948-9f61-8ba26755afcf.png)
+---
 
 Vamos a definir un arreglo de objetos para el carrito
 Definir una interface ICart
