@@ -217,13 +217,11 @@ Parece que se vea mejor modificar el archivo `app.component.html`, para que ocup
 ![imagen](https://user-images.githubusercontent.com/8560750/218588510-cf3d5c45-c649-40ec-a39d-ab808719aad7.png)
 ---
 
-Vamos a agregarle datos 
+## Vamos a agregarle datos 
 Directivas estructurales 
 https://medium.com/notasdeangular/directivas-en-angular-efb8a8cf78e0
 
-Vamos usar la directiva `ngFor`
-
-Vamos a modificar el componente `app.component.ts`
+Vamos usar la directiva `ngFor` modificar el componente `app.component.ts`
 ~~~
 import { Component } from '@angular/core';
 
@@ -252,15 +250,15 @@ Modificar el archivo `app.component.html`
 <app-header></app-header>
 <div class="content">
     <div class="product" *ngFor="let p of products">
-        <app-product></app-product></div>
-    <div class="product"><app-product></app-product></div>
+        <app-product></app-product>
+    </div>
 </div>
 <app-footer></app-footer>
 ~~~
+Guardar cambios en código :floppy_disk: y checar los cambios :eyes: en el navegador
 
-Agregar datos en el array para los datos de producto
-crear una carpeta llamada interfaces
-Crear un archivo dentro de la carpeta llamada `product.interface.ts`
+Crear una carpeta llamada interfaces
+Crear un archivo dentro de la carpeta llamado `product.interface.ts` y agregar los datos o características de los productos
 ~~~
 export interface IProduct {
     id:number,
@@ -304,7 +302,6 @@ export class AppComponent {
     
   }
 }
-
 ~~~
 
 Hacer que el producto llegue app-product
@@ -359,7 +356,10 @@ Modificar archivo `product.component.html`
 <Button>Add</Button>
 ~~~
 
-Agregar la funcionalidad de botón Agregar
+![imagen](https://user-images.githubusercontent.com/8560750/218593199-ea7b89a9-2a12-466e-92e0-796c8a71fe84.png)
+--
+
+## Agregar la funcionalidad de botón Agregar
 Agregar un evento click al componente `product.component.html`
 <Button (click)="add()">Add</Button>
 
